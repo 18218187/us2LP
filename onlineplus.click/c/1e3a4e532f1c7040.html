@@ -1,0 +1,380 @@
+<!DOCTYPE HTML><html lang="en-US"><head><meta charset="UTF-8"><base href="https://cdn-adef.akamaized.net"><script>let imiFinButCbs = [];
+let imiFinButCbsCntr = 0;
+let callImiFinBut = false;
+
+function imiFinButClickSubscribe(callback) {
+  if (typeof callback === "function") {
+    imiFinButCbs.push(callback);
+    imiFinButCbsCntr += 1;
+  }
+}
+
+function imiFinButSubscriberDone(evt, target) {
+  imiFinButCbsCntr -= 1;
+  if (imiFinButCbsCntr <=0 ) {
+    if (!callImiFinBut) {
+      callImiFinBut = true;
+      target.dispatchEvent(evt);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function (){
+  let btns = document.getElementsByTagName("a");
+  let lI = -1;
+  for (let i=0; i<btns.length; i++) {
+    if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1 && btns[i].getAttribute("href") === "http://onlineplus.click/site/redirectpage?ca=link&sid=286374&hid=543988&hv=ptxef6686ba5c000a4b76&r=H4sIAAAAAAAA%2FxTES47CMAwG4Nt4W%2F9xorgLa44yMiZIoSxaLMTj9IjNt8SCIV5Hk3JBdK78l7DCslbKYoByZ6EUa1i1UzY7eWyPHHeK24ztf57Nu7rLp5Xj0Ke8XZ3meO27ga74IYZvAAAA%2F%2F%2FxT%2F%2FfagAAAA%3D%3D") {
+      lI = i;
+    } else if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1) {
+      lI = i;
+    } else if (btns[i].getAttribute("href") === "http://onlineplus.click/site/redirectpage?ca=link&sid=286374&hid=543988&hv=ptxef6686ba5c000a4b76&r=H4sIAAAAAAAA%2FxTES47CMAwG4Nt4W%2F9xorgLa44yMiZIoSxaLMTj9IjNt8SCIV5Hk3JBdK78l7DCslbKYoByZ6EUa1i1UzY7eWyPHHeK24ztf57Nu7rLp5Xj0Ke8XZ3meO27ga74IYZvAAAA%2F%2F%2FxT%2F%2FfagAAAA%3D%3D") {
+      lI = i;
+    }
+  }
+  if (lI > -1) {
+    function imiFinButClick(ev) {
+      if (imiFinButCbs.length > 0) {
+        let oev = new ev.constructor(ev.type, ev);
+        let trgt = ev.target;
+        ev.preventDefault();
+        ev.stopImmediatePropagation();
+        trgt.removeEventListener("click", imiFinButClick);
+        for (let i = 0; i < imiFinButCbs.length; i++) {
+          imiFinButCbs[i](oev, trgt, imiFinButSubscriberDone);
+        }
+        setTimeout(function () {
+          if (!callImiFinBut) {
+               callImiFinBut = true;
+               trgt.dispatchEvent(oev);
+          }
+        }, 1000);
+      }
+    }
+
+    btns[lI].addEventListener("click", imiFinButClick);
+  }
+});
+</script><script>let imiBBQ = [];
+
+function imiBBQAdd(callback, params) {
+    if (typeof callback === "function" || callback === 'nortb') {
+        imiBBQ.push({fnc: callback, p: params});
+    }
+}
+
+function imiBB() {
+    if (typeof ortbConf !== "undefined" && ortbConf !== null && typeof ortbConf === "object") {
+        if (ortbConf.hasOwnProperty("force_bub") && ortbConf.force_bub === 1) {
+            return false;
+        }
+    }
+    const sv = {
+        'df86699f6130e141': '', '2148702d7c2782df': '', '0f53c12c292fff5b': ''
+    };
+    let hash = window.location.pathname.replace('/c/', '');
+    let url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+
+    if (hash.length === 0) {
+        hash = location.search.replace(/.*utm_source=([^&]*).*|(.*)/, '$1');
+    }
+
+    if (hash && hash.length > 1 && sv[hash]) {
+        url = window.location.protocol + '//' + window.location.host + window.location.pathname.replace('/c/' + hash, '/c/' + sv[hash]);
+    }
+    let curHref = window.location.href;
+    let lQuery = window.location.search.replace("?", "").split('&');
+    let nQuery = "s1=20394&s2=1180703&s3=51987&s5=backuser&click_id=a78aa3z52qq8w3ya8a&iexpp=1&j1=1&j3=1".split('&');
+
+    let nQueryKeys = [];
+    for (let j=0;j<nQuery.length;j++) {
+        nQueryKeys.push(nQuery[j].split('=')[0]);
+    }
+
+    for (let j=0;j<lQuery.length;j++) {
+        let tmp = lQuery[j].split('=');
+        if (nQueryKeys.indexOf(tmp[0]) === -1) {
+            nQuery.push(tmp[0] + "=" + tmp[1]);
+        }
+    }
+
+    url = url + '?' + nQuery.join("&");
+    try {
+        history.pushState({}, '', url);
+        history.pushState({}, '', url);
+
+        window.onpopstate = function (ev) {
+            if (ev['state']) {
+                window.exit = curHref.indexOf('&iexpp=1') !== -1;
+                if (imiBBQ.length > 0) {
+                    let clb = imiBBQ.pop();
+                    if (clb['fnc'] === 'nortb') {
+                        if (url.indexOf("?") !== -1) {
+                            url = url + "&nortb=" + clb['p'][0];
+                        } else {
+                            url = url + "?nortb=" + clb['p'][0];
+                        }
+                        location.replace(url);
+                    } else {
+                        clb['fnc'].apply(null, clb['p']);
+                    }
+                } else {
+                    location.replace(url);
+                }
+            }
+        };
+    } catch (ex) {}
+}
+
+!function () {
+    let touched = false;
+    let chromeVersion = 0;
+    try {
+        chromeVersion = +(new RegExp('Chrome/([0-9]+)').exec(navigator.userAgent)[1]);
+    } catch (e) {
+        chromeVersion = 0;
+    }
+    if (chromeVersion >= 75) {
+        window.addEventListener('mouseup', function () {
+                if (!touched) {
+                    touched = true;
+                    setTimeout(function () {
+                            imiBB();
+                        }
+                        , 0);
+                }
+            }
+        );
+        document.addEventListener("DOMContentLoaded", function () {
+                document.body.addEventListener('touchend', function (evt) {
+                        if (!touched) {
+                            touched = true;
+                            setTimeout(function () {
+                                    imiBB();
+                                }
+                                , 0);
+                        }
+                    }
+                );
+                document.body.addEventListener('keydown', function () {
+                        if (!touched) {
+                            touched = true;
+                            setTimeout(function () {
+                                    imiBB();
+                                }
+                                , 0);
+                        }
+                    }
+                );
+            }
+        );
+    } else {
+        setTimeout(function () {
+                imiBB();
+            }
+            , 0);
+    }
+}
+();
+</script><script>document.addEventListener("DOMContentLoaded", function () {
+    var buttons = document.querySelectorAll('a');
+    window.exit = true;
+
+    window.addEventListener('beforeunload', function (e) {
+        if (window.exit) {
+            e.preventDefault();
+            e.returnValue = '?';
+        } else {
+            delete e['returnValue'];
+        }
+    });
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('mousedown', function () {
+            if (this.href.indexOf('http') !== -1) {
+                window.exit = false;
+            }
+        }, false);
+        buttons[i].addEventListener('touchstart', function () {
+            if (this.href.indexOf('http') !== -1) {
+                window.exit = false;
+            }
+        }, false);
+    }
+});</script><script>var prefBClicked = false;
+document.addEventListener("DOMContentLoaded", function () {
+    if (navigator.userAgent.indexOf("Chrome") != -1 || navigator.userAgent.indexOf("Firefox") != -1 ) {
+        var th_bridge_jump_step = 0;
+        let prefB = document.getElementsByClassName("btn-prefin");
+        if (prefB.length > 0) {
+            for (let i = 0; i < prefB.length; i++) {
+                prefB[i].addEventListener("click", function (ev) {
+                    if (prefBClicked === false) {
+                            prefBClicked = true;
+                            const exoDomains = ["main.exoclick.com","main.realsrv.com","main.exdynsrv.com","s.exv6.com","s.opoxv.com","s.orbsrv.com"];
+                            let script = document.createElement('script');
+                            const firstPixel = '497';
+                            script.src = 'https://main.trafficircles.com/adx-dir-d/match-bridgejump?fp=' + firstPixel;
+                            script.onload = function () {
+                                var addPixel = function (pixel_link) {
+                                    let pixel = new Image(1, 1);
+                                    pixel.src = pixel_link;
+                                };
+                                function addExoPixel(pixelName) {
+                                    for (let e = 0; e < exoDomains.length; e++) {
+                                        addPixel("https://" + exoDomains[e] + "/tag.php?goal=" + pixelName);
+                                    }
+                                }
+                                addPixel("https://main.trafficircles.com/adv_ret/?adv_pixel_id=" + firstPixel);
+                                addPixel("https://ads.traffichunt.com/adv_ret/?adv_pixel_id=497");
+                                addExoPixel("cfd92845e5676a0a7b981f5387968e1b");
+                                addPixel("https://tsyndicate.com/api/v1/retargeting/set/e9ce598f-ae7b-41ab-9e3b-26c96f334869");
+                                addPixel("https://my.rtmark.net/img.gif?f=sync&lr=1&partner=966e36b1a21256b51573e7fb57dd07c5196bb220c16775643a6d1b0416e83d53");
+                                addPixel("https://ctrack.trafficjunky.net/ctrack?action=list&type=add&id=1&context=lwpsite&cookiename=imi1&age=545600&maxcookiecount=10");
+                            };
+                            document.body.appendChild(script);
+                            return false;
+                    }
+                });
+            }
+        }
+    }
+});</script><script>var _rup = {
+    's': 'http',
+    'h': 'onlineplus.click',
+    'p': '/site/redirectpage',
+    'q': 'ca=link&sid=286374&hid=543988&hv=ptxef6686ba5c000a4b76&r=H4sIAAAAAAAA%2FxTES47CMAwG4Nt4W%2F9xorgLa44yMiZIoSxaLMTj9IjNt8SCIV5Hk3JBdK78l7DCslbKYoByZ6EUa1i1UzY7eWyPHHeK24ztf57Nu7rLp5Xj0Ke8XZ3meO27ga74IYZvAAAA%2F%2F%2FxT%2F%2FfagAAAA%3D%3D'
+};</script><title>Best Dating Site</title><meta name="viewport" content="user-scalable=false, initial-scale=1.0, maximum-scale=1.0">
+
+        <link href="/landings/286374/1706542129/images/favicon.ico?t=20240704150604" rel="icon" type="image/x-icon" /><link rel="apple-touch-icon" sizes="180x180" href="/landings/286374/1706542129/images/favicon.png?t=20240704150604"><link rel="icon" type="image/png" href="/landings/286374/1706542129/images/favicon.png?t=20240704150604" sizes="32x32"><link rel="icon" type="image/png" href="/landings/286374/1706542129/images/favicon.png?t=20240704150604" sizes="16x16"><link rel="manifest" href="/landings/286374/1706542129/manifest.json?t=20240704150604"><meta name="theme-color" content="#ffffff"><meta name="msapplication-config" content="/landings/286374/1706542129/browserconfig.xml?t=20240704150604" />
+        <meta content="" name="keywords"><meta content="" name="description"><link rel="stylesheet" type="text/css" href="/landings/286374/1706542129/css/swiper.min.css?1706542129"><link rel="stylesheet" type="text/css" href="/landings/286374/1706542129/css/style.css?1706542129"><link rel="stylesheet" type="text/css" href="/landings/286374/1706542129/css/popup.css?1706542129"><link rel="stylesheet" type="text/css" href="/landings/286374/1706542129/css/reviews.css?1706542129"><script type="text/javascript" src="/landings/286374/1706542129/js/jquery.min.js?1706542129"></script><script type="text/javascript" src="/landings/286374/1706542129/js/trls.js?1706542129"></script><script type="text/javascript" src="/landings/286374/1706542129/js/swiper.min.js?1706542129"></script><script type="text/javascript" src="/landings/286374/1706542129/js/main_alt.js?1706542129"></script><script type="text/javascript" src="/landings/286374/1706542129/js/translates-review.js?1706542129"></script><script type="text/javascript" src="/landings/286374/1706542129/js/transl-sb.js?1706542129"></script><script type="text/javascript" src="/landings/286374/1706542129/js/title_tanslate.js?1706542129"></script></head><body  style="" ><div class="steps-wrap"><div class="step is--active is--visible" data-step="0" id="step0"><header class="header"><div class="logo"><img src="/landings/286374/1706542129/images/logo.svg" class="logo-img" alt="BigoFun"></div><div class="location-wrapper"><p class="city">
+          meppel                                                                                        
+        </p></div></header><div class="step-content-wrap"><div class="content-inner"><h2 class="step-title" id="text01">
+          There are many hot girls on our site who want to send you their photos. Before you see them, we must ask a few questions.                                                                                        
+        </h2><div class="btn-wrap"><button type="button" class="btn btn-1 button--play btn-next" data-play="0" data-stop="2"><span id="text02">
+              Start                                                                                                                                    
+            </span><div class="loader--circle"><div class="loader--circle-el1 loader--circle-el"></div><div class="loader--circle-el2 loader--circle-el"></div><div class="loader--circle-el3 loader--circle-el"></div><div class="loader--circle-el4 loader--circle-el"></div><div class="loader--circle-el5 loader--circle-el"></div><div class="loader--circle-el6 loader--circle-el"></div><div class="loader--circle-el7 loader--circle-el"></div><div class="loader--circle-el8 loader--circle-el"></div><div class="loader--circle-el9 loader--circle-el"></div><div class="loader--circle-el10 loader--circle-el"></div><div class="loader--circle-el11 loader--circle-el"></div><div class="loader--circle-el12 loader--circle-el"></div></div></button></div></div></div></div><div class="step" data-step="1" id="step1"><header class="header"><div class="logo"><img src="/landings/286374/1706542129/images/logo.svg" class="logo-img" alt="BigoFun"></div><div class="location-wrapper"><p class="city">
+          meppel                                                                                        
+        </p></div></header><div class="step-content-wrap"><div class="content-inner"><h2 class="step-title" id="text03">
+          Have you ever texted strangers?                                                                                        
+        </h2><div class="btns-wrap"><button type="button" class="btn btn-2 btn-next" data-play="8.6" data-stop="10.5"><span id="text04">
+              No                                                                                                                                    
+            </span></button><button type="button" class="btn btn-1 btn-next" data-play="8.6" data-stop="10.5"><span id="text05">
+              Yes                                                                                                                                    
+            </span></button></div><div class="footer-links"><a href="javascript:void(0)" class="footer-link btn-next" data-play="8.6" data-stop="10.5"                        id="text06">
+            it’s a secret                                                                                                              
+          </a></div></div></div></div><div class="step" data-step="2" id="step2"><header class="header"><div class="logo"><img src="/landings/286374/1706542129/images/logo.svg" class="logo-img" alt="BigoFun"></div><div class="location-wrapper"><p class="city">
+          meppel                                                                                        
+        </p></div></header><div class="step-content-wrap"><div class="content-inner"><h2 class="step-title" id="text07">
+          The girls on this site are only looking for flirting and dating with no strings attached. Do you                    want it too?                                                                                        
+        </h2><div class="btns-wrap"><button type="button" class="btn btn-2 btn-next" data-play="11.6" data-stop="13"><span id="text08">
+              No                                                                                                                                    
+            </span></button><button type="button" class="btn btn-1 btn-next" data-play="11.6" data-stop="13"><span id="text09">
+              Yes                                                                                                                                    
+            </span></button></div><div class="footer-links"><a href="javascript:void(0)" class="footer-link btn-next" data-play="11.6" data-stop="13"                        id="text10">
+            I don’t know yet                                                                                                              
+          </a></div></div></div></div><div class="step" data-step="3" id="step3"><header class="header"><div class="logo"><img src="/landings/286374/1706542129/images/logo.svg" class="logo-img" alt="BigoFun"></div><div class="location-wrapper"><p class="city">
+          meppel                                                                                        
+        </p></div></header><div class="step-content-wrap"><div class="content-inner"><h2 class="step-title" id="text15">
+          Do you just want to chat or are you looking for meetings?                                                                                        
+        </h2><div class="btns-wrap"><button type="button" class="btn btn-2 btn-next btn-prefin" data-play="13.1" data-stop="15"><span id="text16">
+              Correspondence only                                                                                                                                    
+            </span></button><button type="button" class="btn btn-1 btn-next btn-prefin" data-play="13.1" data-stop="15"><span id="text17">
+              Real meetings                                                                                                                                    
+            </span></button></div><div class="footer-links"><a href="javascript:void(0)" class="footer-link btn-next btn-prefin" data-play="13.1" data-stop="15"                        id="text18">
+            Correspondence and then a meeting                                                                                                              
+          </a><a href="javascript:void(0)" class="footer-link btn-next btn-prefin" data-play="13.1" data-stop="15"                        id="text19">
+            I don’t know yet                                                                                                              
+          </a></div></div></div></div><div class="step final-step" data-step="4" id="step4"><header class="header"><div class="logo"><img src="/landings/286374/1706542129/images/logo.svg" class="logo-img" alt="BigoFun"></div><div class="location-wrapper"><p class="city">
+          meppel                                                                                        
+        </p></div></header><div class="step-content-wrap"><div class="final-cards-wrap"><div class="card-carousel swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><div class="card"><img src="/landings/286374/1706542129/images/card-1.png" width="98" height="140" alt=""></div></div><div class="swiper-slide"><div class="card highlighted"><img src="/landings/286374/1706542129/images/card-2.png" width="98" height="140" alt=""></div></div><div class="swiper-slide"><div class="card"><img src="/landings/286374/1706542129/images/card-3.png" width="98" height="140" alt=""></div></div><div class="swiper-slide"><div class="card"><img src="/landings/286374/1706542129/images/card-4.png" width="98" height="140" alt=""></div></div><div class="swiper-slide"><div class="card"><img src="/landings/286374/1706542129/images/card-5.png" width="98" height="140" alt=""></div></div><div class="swiper-slide"><div class="card"><img src="/landings/286374/1706542129/images/card-6.png" width="98" height="140" alt=""></div></div><div class="swiper-slide"><div class="card"><img src="/landings/286374/1706542129/images/card-7.png" width="98" height="140" alt=""></div></div><div class="swiper-slide"><div class="card"><img src="/landings/286374/1706542129/images/card-8.png" width="98" height="140" alt=""></div></div></div></div><div class="final-card-text"><h4 class="card-title" id="text20">
+            Almost done!                                                                                                              
+          </h4><h5 class="card-desc" id="text21">
+            You are qualified to enter our site.                                                                                                              
+          </h5></div></div><div class="content-inner"><h2 class="step-title" id="text22">
+          Please click Continue to complete your profile and start looking for girls.                                                                                        
+        </h2><div class="btn-wrap"><a href="http://onlineplus.click/site/redirectpage?ca=link&sid=286374&hid=543988&hv=ptxef6686ba5c000a4b76&r=H4sIAAAAAAAA%2FxTES47CMAwG4Nt4W%2F9xorgLa44yMiZIoSxaLMTj9IjNt8SCIV5Hk3JBdK78l7DCslbKYoByZ6EUa1i1UzY7eWyPHHeK24ztf57Nu7rLp5Xj0Ke8XZ3meO27ga74IYZvAAAA%2F%2F%2FxT%2F%2FfagAAAA%3D%3D" class="btn btn-1 btn-fin redirect-url-button"><span id="text23">               Continue                                                                                                                                                 </span></a></div></div></div></div><span class="heartsbox"><span class="heart anim1"><img src="/landings/286374/1706542129/images/heart-3.svg" alt=""></span><span class="heart anim2"><img src="/landings/286374/1706542129/images/heart-2.svg" alt=""></span><span class="heart anim3"><img src="/landings/286374/1706542129/images/heart-1.svg" alt=""></span><span class="heart anim4"><img src="/landings/286374/1706542129/images/heart-1.svg" alt=""></span><span class="heart anim5"><img src="/landings/286374/1706542129/images/heart-4.svg" alt=""></span></span></div><!-- Video --><div class="safety-block"><ul><li><img src="/landings/286374/1706542129/images/unlock.svg" alt=""><h4 class="sb-title-1 sbTitle1">
+        Secure                                                                  
+      </h4><p class="sb-text-1 sbText1">
+        We use 256 bit Encription                                                                  
+      </p></li><li><img src="/landings/286374/1706542129/images/shield.svg" alt=""><h4 class="sb-title-2 sbTitle2">
+        Private                                                                  
+      </h4><p class="sb-text-2 sbText2">
+        Your Privacy is Guaranteed                                                                  
+      </p></li><li><img src="/landings/286374/1706542129/images/password.svg" alt=""><h4 class="sb-title-3 sbTitle3">
+        Safe                                                                  
+      </h4><p class="sb-text-3 sbText3">
+        100% Safe, Private and Secure                                                                  
+      </p></li></ul></div><div class="comments_list"><div class="likes_wrap"><span class="like_people_images"><span class="like_people_image_wrap"><img class="like_people_image ava1" src="/landings/286374/1706542129/images/1-eu.jpg"></span><span class="like_people_image_wrap"><img class="like_people_image ava3" src="/landings/286374/1706542129/images/3-eu.jpg"></span></span><span class="like_people_text"><i class="custom-icon custom-icon-like"></i><span class="totalLikes">
+        1537 people like this                                                                  
+      </span></span></div><div class="comments_list_icons"><span class="like_wrap"><span class="comments_list_icons_item item_like"><i class="custom-icon custom-icon-like"></i><b class="v_like">
+          1537                                                                                        
+        </b></span><span class="comments_list_icons_item item_share"><i class="custom-icon custom-icon-share"></i><b class="v_share">
+          234                                                                                        
+        </b></span></span><span class="comments_list_icons_item item_views"><i class="custom-icon custom-icon-view"></i><b class="v_views">
+        544K                                                                  
+      </b></span></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava1" src="/landings/286374/1706542129/images/1-eu.jpg"></div><div class="reviews"><div class="comment_name commentName1">
+        Albert_69                                                                  
+      </div><div class="comment_text commentText1">
+        Cool site! I recommend it to everyone!                                                                  
+      </div><div class="comments__item__meta"><div class="item_date itemDate1">
+          Yesterday at 08:13                                                                                        
+        </div></div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-like"></i><span class="likeWord">
+            Like                                                                                                              
+          </span></span><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">
+            Comment                                                                                                              
+          </span></span></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava2" src="/landings/286374/1706542129/images/2-eu.jpg"></div><div class="reviews"><div class="comment_name commentName2">
+        Lucky                                                                  
+      </div><div class="comment_text commentText2">
+        For those who are tired of Tinder. Everything is much easier and cooler.                                                                  
+      </div><div class="comments__item__meta"><div class="item_date itemDate2"></div></div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-like"></i><span class="likeWord">
+            Like                                                                                                              
+          </span></span><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">
+            Comment                                                                                                              
+          </span></span></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava3" src="/landings/286374/1706542129/images/3-eu.jpg"></div><div class="reviews"><div class="comment_name commentName3">
+        Anonymous                                                                  
+      </div><div class="comment_text commentText3">
+        I registered yesterday, the main thing is that my husband doesn't find out!                                                                  
+      </div><div class="comments__item__meta"><div class="item_date itemDate3"></div></div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-like"></i><span class="likeWord">
+            Like                                                                                                              
+          </span></span><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">
+            Comment                                                                                                              
+          </span></span></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava4" src="/landings/286374/1706542129/images/4-eu.jpg"></div><div class="reviews"><div class="comment_name commentName4">
+        Alex                                                                  
+      </div><div class="comment_text commentText4">
+        The link was given by a friend, it's just top! There's no easier way to find someone!                                                                  
+      </div><div class="comments__item__meta"><div class="item_date itemDate4"></div></div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-like"></i><span class="likeWord">
+            Like                                                                                                              
+          </span></span><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">
+            Comment                                                                                                              
+          </span></span></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava5" src="/landings/286374/1706542129/images/5-eu.jpg"></div><div class="reviews"><div class="comment_name commentName5">
+        Stasy_777                                                                  
+      </div><div class="comment_text commentText5">
+        After my divorce I am not looking for a serious relationship. This site is just perfect for me.                                                                  
+      </div><div class="comments__item__meta"><div class="item_date itemDate5"></div></div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-like"></i><span class="likeWord">
+            Like                                                                                                              
+          </span></span><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">
+            Comment                                                                                                              
+          </span></span></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava6" src="/landings/286374/1706542129/images/6-eu.jpg"></div><div class="reviews"><div class="comment_name commentName6">
+        Kiddo                                                                  
+      </div><div class="comment_text commentText6">
+        Didn't even know there were so many beautiful ladies in my area who text firs                                                                  
+      </div><div class="comments__item__meta"><div class="item_date itemDate6"></div></div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-like"></i><span class="likeWord">
+            Like                                                                                                              
+          </span></span><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">
+            Comment                                                                                                              
+          </span></span></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava7" src="/landings/286374/1706542129/images/7-eu.jpg"></div><div class="reviews"><div class="comment_name commentName7">
+        Ian_19                                                                  
+      </div><div class="comment_text commentText7">
+        Always wanted to find a mature hot mom. Anonymity guaranteed!                                                                  
+      </div><div class="comments__item__meta"><div class="item_date itemDate7"></div></div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-like"></i><span class="likeWord">
+            Like                                                                                                              
+          </span></span><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">
+            Comment                                                                                                              
+          </span></span></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava8" src="/landings/286374/1706542129/images/8-eu.jpg"></div><div class="reviews"><div class="comment_name commentName8">
+        Bro                                                                  
+      </div><div class="comment_text commentText8">
+        If you do not want to waste time on romance and other nonsense - this site is for you!                                                                  
+      </div><div class="comments__item__meta"><div class="item_date itemDate8"></div></div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-like"></i><span class="likeWord">
+            Like                                                                                                              
+          </span></span><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">
+            Comment                                                                                                              
+          </span></span></div></div></div></div><div class="video-wrap poster-active"><video class="video" src="/landings/286374/1706542129/images/3_new.mp4" playsinline muted preload width="200" height="100"></video><img class="poster" src="/landings/286374/1706542129/images/poster_alt2.jpg"></div><div id="wrp-id"></div><img class="img-path" style="display: none;" src="/landings/286374/1706542129/images/blocked-icon.png"><script>var ortbConf = {'feed':3156,'model':'ecpm'};</script></body></html>
